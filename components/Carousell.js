@@ -68,13 +68,7 @@ export default function Carousell({ imageNum, setImageNum, images: props }) {
 const Item = ({ src }) => {
   return (
     <Box sx={{ borderRadius: "20px", overflow: "hidden" }}>
-      <Image
-        objectFit="cover"
-        src={src}
-        width={800}
-        height={300}
-        alt="picture"
-      />
+      <Image style={{ objectFit: "cover" }} src={src} fill alt="picture" />
     </Box>
   );
 };
