@@ -11,6 +11,7 @@ import WalkingManProgressBar from "../../components/ProgressBar";
 
 export default function Home() {
   const [items, setItems] = useState([]);
+  const [accessibilityItems, setAccessibilityItems] = useState([]);
   const [selected, setSelected] = useState(false);
   const [imageNum, setImageNum] = useState(0);
   // get the query id
@@ -33,40 +34,38 @@ export default function Home() {
           console.log(res.data);
           // loop data and add to items
           const newItems = [];
-          for (let i = 0; i < res.data.length; i++) {
-            newItems.push({
-              src: res.data[0].images[i].src,
-            });
+          const accessibilityItemsData = [];
+
+          for (let i = 0; i < res.data[0].images.length; i++) {
+            if (res.data[0].tags.includes("Wheelchair")) {
+              accessibilityItemsData.push({
+                src: res.data[0].images[i].src,
+              });
+            } else {
+              console.log(res.data[0].images[i].src);
+              newItems.push({
+                src: res.data[0].images[i].src,
+              });
+            }
+          }
+
+          for (let i = 0; i < res.data[1].images.length; i++) {
+            if (res.data[1].tags.includes("Wheelchair")) {
+              accessibilityItemsData.push({
+                src: res.data[1].images[i].src,
+              });
+            } else {
+              newItems.push({
+                src: res.data[1].images[i].src,
+              });
+            }
           }
           setItems(newItems);
+          setAccessibilityItems(accessibilityItemsData);
           // loop data and add to accessibilityItems
         });
     }
   }, [id]);
-
-  const accessibilityItems = [
-    {
-      src: "https://picsum.photos/id/129/800/300",
-    },
-    {
-      src: "https://picsum.photos/id/24/800/300",
-    },
-    {
-      src: "https://picsum.photos/id/233/800/300",
-    },
-    {
-      src: "https://picsum.photos/id/299/800/300",
-    },
-    {
-      src: "https://picsum.photos/id/12/800/300",
-    },
-    {
-      src: "https://picsum.photos/id/99/800/300",
-    },
-    {
-      src: "https://picsum.photos/id/2/800/300",
-    },
-  ];
 
   return (
     // create a head
