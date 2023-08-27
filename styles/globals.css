@@ -1,0 +1,50 @@
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+@media (prefers-color-scheme: dark) {
+  html {
+    color-scheme: dark;
+  }
+  body {
+    color: #ffebaa;
+    background: #040303;
+  }
+}
+
+/* styles.css (or your CSS module) */
+.custom-icon-button {
+  border-radius: 50%;
+  color: #ffebaa;
+  background-color: #1c1a1a;
+  border: 3px solid #ffebaa;
+  height: 75px;
+  width: 75px;
+}
+
+.custom-icon-button:hover {
+  background-color: #ffebaa !important;
+  color: #1c1a1a !important;
+  border: 3px solid #1c1a1a !important;
+  opacity: 1 !important;
+}
+
+.custom-icon-button:active {
+  background-color: #ffebaa !important;
+  color: #1c1a1a !important;
+  border: 3px solid #1c1a1a !important;
+  opacity: 1 !important;
+}
